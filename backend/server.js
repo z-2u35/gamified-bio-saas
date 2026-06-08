@@ -4,17 +4,19 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
 
-// Load biến môi trường
-dotenv.config();
+// Import Routes
+const bioRoutes = require('./routes/bioRoutes');
 
-// Kết nối Database
+dotenv.config();
 connectDB();
 
 const app = express();
 
-// Middleware
-app.use(cors()); // Cho phép Frontend gọi API mà không bị chặn
-app.use(express.json()); // Cho phép server đọc dữ liệu JSON gửi lên
+app.use(cors());
+app.use(express.json());
+
+// Gắn các đường dẫn API
+app.use('/api/bio', bioRoutes); // Kích hoạt Route vừa tạo
 
 // API Test
 app.get('/api/health', (req, res) => {
