@@ -1,0 +1,14 @@
+# Bỏ qua thư viện thư mục gốc
+node_modules/
+
+# Bỏ qua thư viện của Backend
+backend/node_modules/
+
+# Bỏ qua biến môi trường bảo mật
+.env
+backend/.env
+frontend/.env.local
+
+# Bỏ qua các file log và hệ điều hành
+.DS_Store
+*.log
